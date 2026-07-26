@@ -1,14 +1,20 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
-app.use(express.json());
 const PORT = 3000;
+app.use(cors());
+app.use(express.json());
 const blogs = [];
 app.get("/", (req, res) => {
     res.send("Welcome to my Express Server!");
 });
 app.post("/blog", (req, res) => {
     const { title, content } = req.body;
-    const newBlog = { id: blogs.length + 1, title, content };
+    const newBlog = {
+        id: blogs.length + 1,
+        title,
+        content
+    };
     blogs.push(newBlog);
     res.status(201).send("Blog added successfully!");
 });
