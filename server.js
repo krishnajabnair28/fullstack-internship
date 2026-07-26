@@ -21,6 +21,23 @@ app.post("/blog", (req, res) => {
 app.get("/blogs", (req, res) => {
     res.json(blogs);
 });
+app.put("/blog/:id", (req, res) => {
+
+    const id = parseInt(req.params.id);
+
+    const { title, content } = req.body;
+
+    const blog = blogs.find(blog => blog.id === id);
+
+    if (!blog) {
+        return res.status(404).send("Blog not found");
+    }
+
+    blog.title = title;
+    blog.content = content;
+
+    res.send("Blog updated successfully!");
+});
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
