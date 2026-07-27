@@ -38,6 +38,20 @@ app.put("/blog/:id", (req, res) => {
 
     res.send("Blog updated successfully!");
 });
+app.delete("/blog/:id", (req, res) => {
+
+    const id = parseInt(req.params.id);
+
+    const index = blogs.findIndex(blog => blog.id === id);
+
+    if (index === -1) {
+        return res.status(404).send("Blog not found");
+    }
+
+    blogs.splice(index, 1);
+
+    res.send("Blog deleted successfully!");
+});
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
