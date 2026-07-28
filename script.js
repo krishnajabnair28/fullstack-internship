@@ -41,6 +41,7 @@ fetch("http://localhost:3000/blogs")
         data.forEach(blog => {
 
             const div = document.createElement("div");
+            div.className = "blog-card";
 
             div.innerHTML = `
                 <h3>${blog.title}</h3>
