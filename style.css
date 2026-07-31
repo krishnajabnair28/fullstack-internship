@@ -66,3 +66,27 @@ button:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
+img {
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .about,
+    form {
+        width: 95%;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
